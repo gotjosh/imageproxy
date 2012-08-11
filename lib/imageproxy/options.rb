@@ -13,7 +13,7 @@ module Imageproxy
       @hash.merge! query_params
       merge_obfuscated
       @hash["source"] = @hash.delete("src") if @hash.has_key?("src")
-
+      @hash["source"] = "http%3A%2F%2Fassets.video.gfrmedia.com%2Fph#{@hash['source']}"
       unescape_source
       unescape_overlay
       unescape_signature
