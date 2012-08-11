@@ -57,7 +57,7 @@ module Imageproxy
     private
 
     def prepend_domain_to_source
-      @hash['source'].prepend('http://s3.amazonaws.com/gfrmedia-video-assets/')
+      @hash['source'].insert(0,'http://s3.amazonaws.com/gfrmedia-video-assets/')
     end
 
     def unescape_source
