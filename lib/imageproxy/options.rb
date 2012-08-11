@@ -9,6 +9,7 @@ module Imageproxy
       command = params_from_path.shift
 
       @hash = Hash[*params_from_path]
+      @hash["source"].insert(0, "http%3A%2F%2Fgfrmedia-video-assets.s3.amazonaws.com%2F") unless @hash["source"].nil?
       @hash['command'] = command
       @hash.merge! query_params
       merge_obfuscated
