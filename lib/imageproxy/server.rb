@@ -30,7 +30,7 @@ module Imageproxy
           end
 
           file.open
-          [200, {"Cache-Control" => "max-age=#{cachetime}, must-revalidate"}.merge(content_type(file, options)), file]
+          [200, {"Cache-Control" => "max-age=#{cachetime}"}.merge(content_type(file, options)), file]
         when "identify"
           check_signature request, options
           check_domain options
