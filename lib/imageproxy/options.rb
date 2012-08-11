@@ -14,7 +14,6 @@ module Imageproxy
       merge_obfuscated
       @hash["source"] = @hash.delete("src") if @hash.has_key?("src")
 
-      prepend_domain_to_source
       unescape_source
       unescape_overlay
       unescape_signature
@@ -55,10 +54,6 @@ module Imageproxy
     end
 
     private
-
-    def prepend_domain_to_source
-      @hash['source'].prepend('http://s3.amazonaws.com/gfrmedia-video-assets/')
-    end
 
     def unescape_source
       @hash['source'] &&= CGI.unescape(CGI.unescape(@hash['source']))
